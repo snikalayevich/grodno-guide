@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путеводитель по промышленным предприятиям Гродно</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, system-ui, sans-serif; background: #0b1a2a; color: #1e2b3c; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        .presentation { width: 100%; max-width: 1100px; height: 90vh; max-height: 700px; position: relative; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); overflow: hidden; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 40px 50px; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; display: flex; flex-direction: column; background: #ffffff; }
+        .slide.active { opacity: 1; pointer-events: auto; }
+        .slide-header { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #1a6b8a; font-weight: 700; margin-bottom: 10px; }
+        .slide-title { font-size: 2.2rem; color: #0b3d5c; font-weight: 700; margin-bottom: 25px; line-height: 1.2; }
+        .slide-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .slide-content p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 15px; color: #33475b; }
+        .slide-content ul { list-style: none; padding: 0; }
+        .slide-content ul li { font-size: 1.1rem; line-height: 1.6; margin-bottom: 12px; padding-left: 30px; position: relative; color: #33475b; }
+        .slide-content ul li::before { content: '•'; position: absolute; left: 5px; color: #1a6b8a; font-weight: bold; font-size: 1.4rem; }
+        .tag { display: inline-block; background: #e8f0f8; color: #1a6b8a; font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-box { background: #f5f8fc; border-radius: 12px; padding: 15px 20px; margin-top: 15px; font-size: 0.95rem; }
+        .contact-box strong { color: #0b3d5c; }
+        .note { background: #fff4e5; border-radius: 10px; padding: 12px 15px; font-size: 0.85rem; color: #7a4e2d; margin-top: 15px; }
+        .controls { position: absolute; bottom: 20px; right: 30px; display: flex; gap: 10px; z-index: 100; }
+        .controls button { background: #0b3d5c; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+        .controls button:hover { background: #1a6b8a; }
+        .controls button:disabled { background: #ccc; cursor: not-allowed; }
+        .progress { position: absolute; bottom: 0; left: 0; height: 6px; background: #1a6b8a; transition: width 0.3s ease; z-index: 100; }
+        .slide-number { position: absolute; bottom: 25px; left: 50px; font-size: 0.85rem; color: #8aa0b5; z-index: 100; }
+        .intro-slide { background: linear-gradient(135deg, #0b3d5c, #1a6b8a); color: white; justify-content: center; align-items: center; text-align: center; }
+        .intro-slide h1 { font-size: 2.8rem; margin-bottom: 15px; }
+        .intro-slide p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 15px; }
+        .grid-item { background: #f5f8fc; padding: 15px; border-radius: 12px; border-left: 4px solid #1a6b8a; }
+        .grid-item h4 { color: #0b3d5c; margin-bottom: 5px; font-size: 1rem; }
+        .grid-item p { font-size: 0.85rem; margin-bottom: 0; }
+        @media (max-width: 700px) { .presentation { height: 95vh; border-radius: 0; } .slide { padding: 25px 25px; } .slide-title { font-size: 1.5rem; } .slide-content p, .slide-content ul li { font-size: 0.95rem; } .intro-slide h1 { font-size: 1.8rem; } .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="presentation" id="presentation">
+    <!-- Слайд 1 -->
+    <div class="slide active intro-slide">
+        <h1>🏭 Промышленный туризм Гродно</h1>
+        <p>Путеводитель по предприятиям для школьников: контакты, адреса и правила посещения.</p>
+    </div>
+
+    <!-- Слайд 2: Введение -->
+    <div class="slide">
+        <div class="slide-header">Введение</div>
+        <div class="slide-title">Зачем идти на завод?</div>
+        <div class="slide-content">
+            <p>Промышленный туризм — это шанс увидеть реальное производство, пообщаться с инженерами и понять, кем ты хочешь стать.</p>
+            <ul>
+                <li>Технологии и оборудование</li>
+                <li>Музеи предприятий</li>
+                <li>Дегустации и мастер-классы</li>
+            </ul>
+            <div class="contact-box">
+                <strong>Как записаться:</strong> согласуйте дату с учителем и позвоните по контактам на слайдах за 1–2 недели.
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 3: Белкард -->
+    <div class="slide">
+        <div class="slide-header">Машиностроение</div>
+        <div class="slide-title">ОАО «Белкард»</div>
+        <div class="slide-content">
+            <span class="tag">Машиностроение</span>
+            <p><strong>Адрес:</strong> ул. Линейная, 38</p>
+            <p>Производство карданных валов и рулевых тяг. Экскурсии для 5–6 классов с посещением музея.</p>
+            <div class="contact-box">
+                <strong>Контакты:</strong><br>
+                +375 29 193-04-10 — Дарья Николаевна
+            </div>
+            <div class="note">Экскурсии по договорённости.</div>
+        </div>
+    </div>
+
+    <!-- Слайд 4: Молочный мир -->
+    <div class="slide">
+        <div class="slide-header">Пищевая промышленность</div>
+        <div class="slide-title">ОАО «Молочный мир»</div>
+        <div class="slide-content">
+            <span class="tag">Пищепром</span>
+            <p><strong>Адрес:</strong> ул. Гаспадарчая, 28</p>
+            <p>Экскурсии с дегустацией. Группы до 20 человек, с 13 лет.</p>
+            <div class="contact-box">
+                <strong>Контакты:</strong><br>
+                excursion@milk.by (за 5 рабочих дней)
+            </div>
+            <div class="note">При себе иметь паспорт. Вторник и четверг.</div>
+        </div>
+    </div>
+
+    <!-- Слайд 5: Белпочта и Фармация -->
+    <div class="slide">
+        <div class="slide-header">Связь и медицина</div>
+        <div class="slide-title">Белпочта и Фармация</div>
+        <div class="slide-content">
+            <div class="grid-3">
+                <div class="grid-item">
+                    <h4>РУП «Белпочта»</h4>
+                    <p><strong>Адрес:</strong> ул. К. Маркса, 29</p>
+                    <p><strong>Тел:</strong> +375 29 589-95-69<br>(Ольга Николаевна)</p>
+                </div>
+                <div class="grid-item">
+                    <h4>РУП «Фармация»</h4>
+                    <p><strong>Адрес:</strong> ул. Ожешко, 11</p>
+                    <p><strong>Тел:</strong> 8 (0152) 62-01-24<br>(Зоя Ивановна)</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Комитет по охране природы</h4>
+                    <p><strong>Адрес:</strong> г. Гродно</p>
+                    <p><strong>Тел:</strong> +375 33 312-53-06<br>(Оксана Антоновна)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 6: Стеклозавод и другие -->
+    <div class="slide">
+        <div class="slide-header">Другие предприятия</div>
+        <div class="slide-title">Стеклозавод, Гидромет, Гронитекс</div>
+        <div class="slide-content">
+            <div class="grid-3">
+                <div class="grid-item">
+                    <h4>Стеклозавод</h4>
+                    <p><strong>Адрес:</strong> г. Гродно</p>
+                    <p><strong>Тел:</strong> +375 29 670-03-84</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Гроднооблгидромет</h4>
+                    <p><strong>Адрес:</strong> г. Гродно</p>
+                    <p><strong>Тел:</strong> +375 29 285-04-65<br>(Елена Олеговна)</p>
+                </div>
+                <div class="grid-item">
+                    <h4>ОАО «Гронитекс»</h4>
+                    <p><strong>Адрес:</strong> г. Гродно</p>
+                    <p><strong>Тел:</strong> +375 29 266-53-22<br>(Михаил Степанович)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 7: Гродножилстрой -->
+    <div class="slide">
+        <div class="slide-header">Строительство</div>
+        <div class="slide-title">ОАО «Гродножилстрой»</div>
+        <div class="slide-content">
+            <span class="tag">Строительство</span>
+            <p><strong>Адрес:</strong> ул. Суворова, 135</p>
+            <p>Профориентационные мероприятия «День предприятия» для школьников.</p>
+            <div class="contact-box">
+                <strong>Контакты:</strong><br>
+                Приёмная: 8 (0152) 738-388<br>
+                Сайт: ghb.by
+            </div>
+        </div>
+    </div>
+
+    <!-- Слайд 8: Заключение -->
+    <div class="slide intro-slide">
+        <h1>Спасибо за внимание!</h1>
+        <p>Перед экскурсией всегда уточняйте информацию по указанным телефонам. Удачных открытий!</p>
+    </div>
+
+    <!-- Управление -->
+    <div class="slide-number" id="slideNumber">1 / 8</div>
+    <div class="controls">
+        <button id="prevBtn" disabled>←</button>
+        <button id="nextBtn">→</button>
+    </div>
+    <div class="progress" id="progress" style="width: 12.5%;"></div>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideNumber = document.getElementById('slideNumber');
+    const progress = document.getElementById('progress');
+    let currentSlide = 0;
+
+    function updateSlide() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        slideNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+        progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlide();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlide();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextBtn.click();
+        if (e.key === 'ArrowLeft') prevBtn.click();
+    });
+
+    // Свайпы для мобильных
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const presentation = document.getElementById('presentation');
+    presentation.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+    presentation.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX < touchStartX - 50) nextBtn.click();
+        if (touchEndX > touchStartX + 50) prevBtn.click();
+    });
+
+    updateSlide();
+</script>
+
+</body>
+</html>
